@@ -33,7 +33,7 @@
 ! URxvt*cursorUnderline:                boolean
 ! URxvt*cursorBlink:                    boolean
 ! URxvt*pointerBlank:                   boolean
-! URxvt.background:[95]#000000                    
+! URxvt.background:[95]#000000
 ! URxvt*foreground:                     color
 ! URxvt*color0:                         color
 ! URxvt*color1:                         color
@@ -143,7 +143,7 @@ URxvt.font: xft:Monaco For Powerline:size=11
 *color9: #CC6666
 ! green
 *color2: #8C9440
-*color10: #B5BD68
+*color10: #B5BD68 
 ! yellow
 *color3: #DE935F
 *color11: #F0C674
@@ -159,3 +159,10 @@ URxvt.font: xft:Monaco For Powerline:size=11
 ! white
 *color7: #707880
 *color15: #C5C8C6
+xterm*faceName: Hack:size=10
+
+*VT100.colorBDMode: true
+*VT100.colorBD: #81A2BE
+*VT100.colorULMode: true
+*VT100.colorUL: #DE935F
+!*VT100.veryBoldColors: 4

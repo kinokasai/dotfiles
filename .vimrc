@@ -1,28 +1,27 @@
-
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/SmartColumnColor'
-Plugin 'jdonaldson/vaxe'
-Plugin 'majutsushi/tagbar'
-Plugin 'djoshea/vim-autoread'
-Plugin 'beyondmarc/glsl.vim'
-Plugin 'raichoo/haskell-vim'
+"Plugin 'gmarik/Vundle.vim'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'vim-scripts/SmartColumnColor'
+"Plugin 'jdonaldson/vaxe'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'djoshea/vim-autoread'
+"Plugin 'beyondmarc/glsl.vim'
+"Plugin 'raichoo/haskell-vim'
 
-call vundle#end()
+"call vundle#end()
 
 filetype plugin indent on
 
 
 syntax on
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
+"let g:hybrid_use_Xresources = 1
+"colorscheme hybrid
 set autoread
 set noswapfile
 set autowrite
@@ -35,6 +34,8 @@ set number
 set relativenumber
 set laststatus=2
 set statusline=%f\ %l\|%c\ %m%=%p%%\ (%Y%R)
+
+hi statusline ctermfg=14 ctermbg=0
 
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
@@ -50,12 +51,11 @@ au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertChange * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline ctermfg=6
 
-hi statusline ctermfg=6
+"hi statusline ctermfg=6
 
-        set statusline+=%#warningmsg#
-        set statusline+=%{SyntasticStatuslineFlag()}
-        set statusline+=%*
-    
+"        set statusline+=%#warningmsg#
+"        set statusline+=%{SyntasticStatuslineFlag()}
+"        set statusline+=%*
 set wildmenu
 set wildmode=list:longest:full
 
@@ -64,9 +64,9 @@ set wildmode=list:longest:full
 
 "set fillchars=vert:│
 
-set statusline+=%{fugitive#statusline()}
+"set statusline+=%{fugitive#statusline()}
 
-let g:load_doxygen_syntax=1
+"let g:load_doxygen_syntax=1
 
 set mouse=a
 
@@ -74,7 +74,7 @@ set showmatch
 
 set wrap
 
-set textwidth=79
+set textwidth=78
 "set cursorline
 
 set ignorecase
@@ -93,20 +93,34 @@ set smarttab
 
 set autoindent
 
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+"autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-autocmd BufNewFile,BufRead *.vp,*.fp,*.gp,*.vs,*.fs,*.gs,*.tcs,*.tes,*.cs,*.vert,*.frag,*.geom,*.tess,*.shd,*.gls,*.glsl set ft=glsl330
+"autocmd BufNewFile,BufRead *.vp,*.fp,*.gp,*.vs,*.fs,*.gs,*.tcs,*.tes,*.cs,*.vert,*.frag,*.geom,*.tess,*.shd,*.gls,*.glsl set ft=glsl330
 
 highlight LineNr ctermfg=3
 highlight CursorLineNr ctermfg=Red
 
-let g:syntastic_c_compiler='clang'
-let g:syntastic_cpp_check_header=1
+au InsertEnter * hi Statement ctermfg=Blue
 
-let g:haskell_enable_quantification=1
-let g:haskell_enable_recursivedo=1
-let g:haskell_enable_arrowsyntax=1
+"let g:syntastic_c_compiler='clang'
+"let g:syntastic_cpp_check_header=1
+
+"let g:haskell_enable_quantification=1
+"let g:haskell_enable_recursivedo=1
+"let g:haskell_enable_arrowsyntax=1
 
 
 set undodir=~/.vim/undo
 set undofile
+
+match  ErrorMsg '\s\+$'
+
+2match  ErrorMsg 'for(\|if(\|while(\|sizeof(\|switch('
+
+inoremap <C-A-:> >
+inoremap <A-:> ->
+inoremap <A-;> <
+inoremap <A-n> NULL
+inoremap <A-c> size_t
+inoremap <C-A-m> malloc(
+inoremap <A-u> unsigned
