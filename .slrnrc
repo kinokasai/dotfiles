@@ -1,0 +1,17 @@
+charset config "utf-8"
+charset display "utf-8"
+charset outgoing "utf-8"
+
+set username "dousso_a"
+
+set hostname "epita.fr"
+set realname "Alexandre Doussot"
+set replyto "dousso_a@epita.fr"
+
+visible_headers "From:,Newsgroups:,Followup-To:,Date:,Subject:"
+
+set editor_command "vim +%d %s"
+
+set sorting_method 9
+setkey group "set_prefix_argument(4); () = select_group();" " "
+
